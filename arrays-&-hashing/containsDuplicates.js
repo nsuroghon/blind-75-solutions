@@ -20,14 +20,15 @@ var conatainsDuplicates2 = function(nums) {
     for(el of nums) {
         console.log(el)
         if(map[el]) {
-            map[el] += 1
+            return true;
         }
         else {
             map[el] = 1
         }
     }
 
-    return map;
+    return false;
 }
 
+console.log(conatainsDuplicates2([1,2,3,4]))
 console.log(conatainsDuplicates2([1,1,1,3,3,4,3,2,4,2]))
