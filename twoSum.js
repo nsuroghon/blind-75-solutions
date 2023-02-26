@@ -50,7 +50,6 @@ function twoSum2(nums,target) {
         else {
             map[nums[i]] = i
         }
-        
     }
 }
 
