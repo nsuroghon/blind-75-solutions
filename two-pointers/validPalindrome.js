@@ -3,6 +3,12 @@
 // it reads the same forward and backward. 
 // Alphanumeric characters include letters and numbers.
 
+
+// Note: I did not finish the two pointer solution, failing the test case where string length is 2
+// Also theres variability in this question
+// Neetcode solution doesn't remove the non-alphanumeric chars
+// Leetcode question updated and says to remove
+
 // "Cheating solution" with built in JS methods
 
 function validPalindrome(s) {
@@ -27,17 +33,37 @@ console.log(validPalindrome("race a car"))
 // Increment left point
 
 function validPalindrome1(s) {
-    console.log(s[0], s[s.length-1])
     let left = 0
-    let right = s.lenght - 1
+    let right = s.length - 1
 
-    while (left <= right) {
-        // if s[left] & s[right] chars are alphanumeric
-            // left++ or right--
+    while (left < right) {
+        // check if s[left] is an alphanumeric character
+        // check if s[right] is an alphanumeric character
+        // If either is not we move point past it
+
+        // these have to be while loops, in the case of two consecutive non-alphanumeric chars
+        // if-statement would stop after first
+        while(left < right && alphaNumAscii(s[left]) === false) left++;
+        while(right > left && alphaNumAscii(s[right]) === false) right--;
+
+        // If pair are both alphanumeric && lowercase version equal each other
+        // Move to next pair
             
-        // if(s[left].toLowerCase() !== s[right].toLowerCase()) return false; 
+        if(s[left].toLowerCase() === s[right].toLowerCase()) {
+            left++;
+            right--;
+        } 
+        else {
+            return false;
+        }
     }
+
+    return true;
 }
+
+console.log(validPalindrome1(".,"))
+console.log(validPalindrome1("A man, a plan, a canal: Panama"))
+console.log(validPalindrome1("race a car"))
 
 function alphaNumRegex(char) {
     const regex = /[0-9a-zA-Z]/g;
@@ -51,6 +77,7 @@ console.log(alphaNumRegex("a"))
 console.log(alphaNumRegex("A"))
 
 function alphaNumAscii(char) {
+    console.log(char)
     // Ascii values 
     // 0 - 9: 48 - 57
     // A - Z: 65 - 90
@@ -67,13 +94,9 @@ function alphaNumAscii(char) {
     return false;
 }
 
-
-console.log(alphaNumAscii(" "))
-console.log(alphaNumAscii("."))
-console.log(alphaNumAscii("0"))
-console.log(alphaNumAscii("a"))
-console.log(alphaNumAscii("A"))
-
-
-
-console.log(validPalindrome1("A man, a plan, a canal: Panama"))
+// console.log(alphaNumAscii(" "))
+// console.log(alphaNumAscii(".,"))
+// console.log(alphaNumAscii("."))
+// console.log(alphaNumAscii("0"))
+// console.log(alphaNumAscii("a"))
+// console.log(alphaNumAscii("A"))
