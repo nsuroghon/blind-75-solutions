@@ -39,17 +39,16 @@ function validPalindrome1(s) {
     }
 }
 
-// function alphaNumRegex(char) {
-//     console.log(char)
-//     const regex = /[0-9a-zA-Z]/g;
-//     return char.match(regex);
-// }
+function alphaNumRegex(char) {
+    const regex = /[0-9a-zA-Z]/g;
+    return char.match(regex) !== null;
+}
 
-// console.log(alphaNumRegex(" "))
-// console.log(alphaNumRegex("."))
-// console.log(alphaNumRegex("0"))
-// console.log(alphaNumRegex("a"))
-// console.log(alphaNumRegex("A"))
+console.log(alphaNumRegex(" "))
+console.log(alphaNumRegex("."))
+console.log(alphaNumRegex("0"))
+console.log(alphaNumRegex("a"))
+console.log(alphaNumRegex("A"))
 
 function alphaNumAscii(char) {
     // Ascii values 
