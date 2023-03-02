@@ -28,6 +28,9 @@ function maxProfit(prices) {
     return maxProfit;
 }
 
+// Time - O(N)
+// Space - O(1)
+
 
 // Option 1:
 // Logic:
