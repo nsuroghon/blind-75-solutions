@@ -49,7 +49,7 @@ console.log(validParentheses("(])]"))
 
 // Faster runtime 
 function validParentheses2(s) {
-    
+
     // odd length is always invalid
     if(s.length % 2 !== 0) return false;
  
@@ -58,9 +58,10 @@ function validParentheses2(s) {
         '[': ']',
         '{': '}'
     }
+
     const stack = []
 
-    for(el of s){
+    for(el of s){ 
         if(map[el]) {
             stack.push(map[el])
         }
@@ -71,6 +72,9 @@ function validParentheses2(s) {
     // if stack is empty = valid
     return stack.length === 0
 }
+
+// Time - O(N)
+// Space - O(N)
 
 // console.log(validParentheses2("()"))
 // console.log(validParentheses2("(]"))
