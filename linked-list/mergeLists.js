@@ -60,5 +60,8 @@ var mergeTwoLists = function(l1, l2) {
     return dummy.next;
 };
 
+// Time - O(N)
+// Space - O(1)
+
 console.log(mergeTwoLists(l1, l2))
 
