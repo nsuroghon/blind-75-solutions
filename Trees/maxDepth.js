@@ -46,4 +46,16 @@ function maxDepth(root){
 // Time - O(N)
 // Space - O(1)
 
+// https://www.youtube.com/watch?v=YT1994beXn0
+
+// Start of recursive solution
+// function maxDepth(root) {
+//     if(!root) return 0;
+    
+//     const left = maxDepth(root.left);
+//     const right = maxDepth(root.right);
+
+
+// }
+
 console.log(maxDepth(a))
